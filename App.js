@@ -3,9 +3,10 @@ import { StatusBar } from 'expo-status-bar';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { StyleSheet, Text, View } from 'react-native';
-import TransactionDetail from './components/TransactionDetail';
-import TransactionList from './components/TransactionList';
-import Summary from './components/Summary';
+import Summary from './src/components/Summary';
+import TransactionsList from './src/components/TransactionsList';
+import TransactionDetail from './src/components/TransactionDetail';
+
 export default function App() {
 
   const Stack = createStackNavigator();
@@ -14,18 +15,18 @@ export default function App() {
   function TransactionStack() {
     return (
       <Stack.Navigator>
-        <Stack.Screen name="Transactions List" component={TransactionList} />
+        <Stack.Screen name="Transactions List" component={TransactionsList} />
         <Stack.Screen name="Transaction Detail" component={TransactionDetail} />
       </Stack.Navigator>
     );
   }
   return (
-    <NavigationContainer>
-      <Tab.Navigator>
-        <Tab.Screen name="Transactions" component={TransactionStack} />
-        <Tab.Screen name="Summary" component={Summary} />
-      </Tab.Navigator>
-    </NavigationContainer>
+      <NavigationContainer>
+        <Tab.Navigator>
+          <Tab.Screen name="Transactions" component={TransactionStack} />
+          <Tab.Screen name="Summary" component={Summary} />
+        </Tab.Navigator>
+      </NavigationContainer>
   );
 }
 

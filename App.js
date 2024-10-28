@@ -3,9 +3,11 @@ import { StatusBar } from 'expo-status-bar';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { StyleSheet, Text, View } from 'react-native';
-import Summary from './src/components/Summary';
-import TransactionsList from './src/components/TransactionsList';
-import TransactionDetail from './src/components/TransactionDetail';
+import { TransactionProvider } from './src/TransactionContext';
+import Summary from './src/components/Summary/Summary.js';
+import TransactionsList from './src/components/TransactionsList/TransactionsList.js'
+import TransactionDetail from './src/components/TransactionDetaiil/TransactionDetail.js';
+import Ionicons from '@expo/vector-icons/Ionicons';
 
 export default function App() {
 
@@ -21,12 +23,26 @@ export default function App() {
     );
   }
   return (
+    <TransactionProvider>
       <NavigationContainer>
         <Tab.Navigator>
-          <Tab.Screen name="Transactions" component={TransactionStack} />
-          <Tab.Screen name="Summary" component={Summary} />
+          <Tab.Screen name="Transactions"
+           component={TransactionStack}
+           options={{
+            tabBarIcon: ({ color, size }) => (
+              <Ionicons name="wallet" color={color} size={size} />
+            ),
+          }} />
+          <Tab.Screen name="Summary" 
+          component={Summary} 
+          options={{
+            tabBarIcon: ({ color, size }) => (
+              <Ionicons name="stats-chart" color={color} size={size} />
+            ),
+          }}/>
         </Tab.Navigator>
       </NavigationContainer>
+    </TransactionProvider>
   );
 }
 

@@ -12,20 +12,31 @@ export default function TransactionDetail({ route }) {
         <Text style={styles.trDate}>{transaction.date}</Text>
       </View>
 
-      <Text style={styles.trCat}>{transaction.category}</Text>
-      <Text style={styles.trcard}>$ {transaction.amount}</Text>
-
+      <View style={styles.basicInfo}>
+        <Text style={styles.trCat}>{transaction.category}</Text>
+        <Text style={styles.trCost}>-  ${transaction.amount}</Text>
+      </View>
       <Text style={styles.trDesc}>{transaction.description}</Text>
       {transaction.card ? (
         <>
           <Text style={styles.trtitle}>{transaction.paymentMethod} Details</Text>
           <View style={styles.cardContent}>
+          <View style={styles.paymentInfo}>
+            <Text style={[styles.trcard, styles.cardTitle]}>Card Type:   </Text>
             <Text style={styles.trcard}>{transaction.card?.cardType}</Text>
-            <Text style={styles.trcard}>{transaction.card?.cardNumber}</Text>
+          </View>
+          <View style={styles.paymentInfo}>
+            <Text style={[styles.trcard, styles.cardTitle]}>Card No:    </Text>
+            <Text style={styles.trcard}>  {transaction.card?.cardNumber}</Text>
+            </View>
           </View>
         </>
       ) : (
-        <Text style={styles.trpayment}>Payment Method:  {transaction.paymentMethod}</Text>
+        <View style={styles.paymentInfo}>
+          <Text style={styles.trpaytitle}>Payment Method: </Text>
+          <Text style={styles.trpayment}>  {transaction.paymentMethod}</Text>
+        </View>
+        
       )}
     </View>
   );

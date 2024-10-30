@@ -11,21 +11,26 @@ const styles = StyleSheet.create({
   },
   trName: {
     fontSize: 19,
-    color: '#333',
-    marginTop: 10
+    color: '#4a235a',
+    marginTop: 10,
+    fontWeight: 'bold'
   },
   trAmount: {
     fontSize: 18,
-    marginTop: 10
+    marginTop: 10,
+    color: 'red'
+
   },
   trPayment: {
-    fontStyle: 'italic'
+    fontStyle: 'italic',
+    color: '#4a235a'
   },
   trDate: {
     marginTop: 10,
     marginBottom: 10,
     fontStyle: 'italic',
-    fontWeight: 'bold'
+    fontWeight: '500',
+    color: '#641e16'
   },
 
   infoCard: {

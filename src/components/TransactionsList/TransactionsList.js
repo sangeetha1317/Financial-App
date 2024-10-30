@@ -18,7 +18,7 @@ export default function TransactionsList({ navigation }) {
             <View style={styles.infoCard}>
             <View style={styles.infoContent}>
               <Text style={styles.trName}>{item.name}</Text>
-              <Text style={styles.trAmount}>${item.amount}</Text>
+              <Text style={styles.trAmount}>- ${item.amount}</Text>
             </View>
               <Text style={styles.trPayment}>{item.paymentMethod}</Text>
               <Text style={styles.trDate}>{item.date}</Text>

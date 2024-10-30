@@ -17,29 +17,34 @@ export default function App() {
   function TransactionStack() {
     return (
       <Stack.Navigator>
-        <Stack.Screen name="Transactions List" component={TransactionsList} />
-        <Stack.Screen name="Transaction Detail" component={TransactionDetail} />
+        <Stack.Screen name="Transactions List" component={TransactionsList}  options={{ title: "My Transactions", headerTitleStyle: { color: '#4a235a', fontWeight: 'bold' } }} />
+        <Stack.Screen name="Transaction Detail" component={TransactionDetail} options={{ headerTitleStyle: { color: '#4a235a', fontWeight: 'bold' } }} />
       </Stack.Navigator>
     );
   }
   return (
     <TransactionProvider>
       <NavigationContainer>
-        <Tab.Navigator>
+        <Tab.Navigator screenOptions={({ route }) => ({
+        tabBarActiveTintColor: '#4a235a',
+        tabBarInactiveTintColor: 'gray',
+        headerTitleAlign: 'left',
+        tabBarIcon: ({ focused, color }) => {
+          let iconName;
+          if (route.name === 'Transactions') {
+            iconName = focused ? 'wallet' : 'wallet-outline'
+          } else {
+            iconName = focused ? 'stats-chart' : 'stats-chart-outline';
+          }
+          return <Ionicons name={iconName} size={24} color={color} />;
+        }
+      })}>
           <Tab.Screen name="Transactions"
            component={TransactionStack}
-           options={{
-            tabBarIcon: ({ color, size }) => (
-              <Ionicons name="wallet" color={color} size={size} />
-            ),
-          }} />
+           options={{headerShown: false }}
+          />
           <Tab.Screen name="Summary" 
-          component={Summary} 
-          options={{
-            tabBarIcon: ({ color, size }) => (
-              <Ionicons name="stats-chart" color={color} size={size} />
-            ),
-          }}/>
+          component={Summary}  options={{headerTitle: 'Financial Summary', headerTitleStyle: { color: '#4a235a',  fontWeight: 'bold'  }  }}/>
         </Tab.Navigator>
       </NavigationContainer>
     </TransactionProvider>

@@ -22,44 +22,67 @@ const styles = StyleSheet.create({
         fontSize: 25,
         fontStyle: 'normal',
         fontWeight: 'bold',
-        color: '#333',
+        color: '#4a235a',
     },
     trDesc: {
         fontSize: 16,
-        marginTop: 20
+        marginTop: 20,
+        fontWeight: '500',
+        color: '#4a235a'
     },
     trCat: {
         fontSize: 16,
-        fontStyle: 'italic'
+        fontStyle: 'italic',
+        color: '#4a235a'
+    },
+    paymentInfo: {
+        flexDirection: 'row',
+    },
+    trpaytitle: {
+        fontSize: 16,
+        marginVertical: 10,
+        marginTop: 20,
+        color: '#4a235a',
+        fontWeight: 'bold',
+        fontStyle: 'normal',
     },
     trpayment: {
         fontSize: 16,
         marginVertical: 10,
         marginTop: 20,
+        color: '#4a235a',
         fontStyle: 'normal',
-    },
-    trAmount: {
-        fontSize: 18,
-        marginTop: 10
-    },
-    trPayment: {
-        fontStyle: 'italic'
     },
     trDate: {
         marginTop: 10,
         marginBottom: 10,
         fontStyle: 'italic',
+        fontWeight: '600',
+        
+        color: '#4a235a'
+    },
+    cardTitle: {
+       fontWeight: '500',
+       fontStyle: 'normal'
     },
     trcard: {
-        marginTop: 10,
+        marginTop: 20,
         fontSize: 17,
         fontStyle: 'italic',
+        color: '#4a235a'
+    },
+    trCost: {
+        fontSize: 16,
+        fontStyle: 'italic',
+        color: 'red'
     },
     trtitle: {
         fontSize: 19,
         fontWeight: 'bold',
         fontStyle: 'italic',
-        marginTop: 30
+        marginTop: 30,
+        color: '#4a235a',
+
     },
     cardContent: {
         paddingHorizontal: 20

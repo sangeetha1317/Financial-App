@@ -40,12 +40,14 @@ const styles = StyleSheet.create({
     elevation: 2,
   },
   summaryLabel: {
-    fontSize: 16,
-    color: '#555',
+    fontSize: 17,
+    fontWeight: 'bold',
+    color: '#4a235a',
   },
   summaryValue: {
-    fontSize: 20,
-    fontWeight: 'bold',
+    fontSize: 18,
+    color: 'red',
+    fontStyle: 'italic'
   },
   transactionItem: {
     padding: 10,
